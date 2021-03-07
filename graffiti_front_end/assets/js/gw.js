@@ -1,12 +1,11 @@
 function my_func(e) {
-  // e.preventDefault();
+  e.preventDefault();
   e.stopPropagation();
-  alert("hello");
-  // $.post("http://127.0.0.1:5000/graffiti",
-  // {
-  //   emo: document.getElementById('emotion').value,
-  //   comm: document.getElementById('user_post').value
-  // });
+   $.post("/graffiti",
+   {
+     emo: document.getElementById('emotion').value,
+     comm: document.getElementById('user_post').value
+   });
 }
 function display_user_input() {
   $('#auto_fill').hide();
@@ -23,11 +22,12 @@ function validate_user_input() {
 }
 
 function checkContainer (e) {
-  // e.preventDefault();
-  // e.stopPropagation();
-  // var frequency_list = $.get("http://127.0.0.1:5000/graffiti", function(data){
-  //   // alert("Data: " + data + "\nStatus: " + status);
-  // });
+   e.preventDefault();
+   e.stopPropagation();
+   var frequency_list = $.get("/graffiti", function(data){
+   console.log(data);
+//      alert("Data: " + data + "\nStatus: " + status);
+   });
   document.getElementById("wall").innerHTML = "";
   if($('#wall').is(':visible')){
      //if the container is visible on the page

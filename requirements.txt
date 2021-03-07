@@ -4,3 +4,4 @@ psycopg2
 transformers
 sentence-transformers
 sklearn
+flask-cors
