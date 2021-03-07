@@ -27,6 +27,8 @@
 
 
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
 </head>
 
 <body>
@@ -41,8 +43,17 @@
       <p>Today I'm <span class="typed" data-typed-items="happy because I got promoted! , sad because I got divorced!, irritated because it's so humid, peaceful because the sky is beautiful"></span> </p>
     </div>
     <div class="hero-container" data-aos="fade-in" onclick="" id="user_fill" style="display:none">
-      <form class="form-inline" >
-        <label for="emotion">Today I'm feeling </label>
+      <form class="form-inline" id="post_form">
+        <label for="emotions" class="form-label">Today I'm </label>
+            <input list="emotions" id="emotion" placeholder="feeling ..." style="width: 150px;" required autocomplete="off">
+            <datalist id="emotions">
+              <option value="Happy">
+              <option value="Sad">
+              <option value="Irriated">
+              <option value="Calm">
+              <option value="Excited">
+            </datalist>
+        <!-- <label for="emotion">Today I'm feeling </label>
           <input list="emotion" name="emotion" id="emotion"  style="width: 150px;" required>
             <datalist id="emotions">
               <option value="Happy">
@@ -50,10 +61,9 @@
               <option value="Irriated">
               <option value="Calm">
               <option value="Angry">
-            </datalist>
-          </input>
-        <label for="txt_string">Because</label>
-        <input type="text" id="user_post" placeholder="60 character limit" name="pswd" required>
+            </datalist> -->
+        <label for="txt_string">because</label>
+        <input type="text" id="user_post" placeholder="keep it short" name="pswd" required autocomplete="off">
       </form>
 
     </div>

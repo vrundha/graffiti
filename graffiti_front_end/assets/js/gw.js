@@ -1,6 +1,7 @@
 function my_func(e) {
-  e.preventDefault();
+  // e.preventDefault();
   e.stopPropagation();
+  $('#post_on_wall').prop('disabled', true);
    $.post("/graffiti",
    {
      emo: document.getElementById('emotion').value,
@@ -15,8 +16,31 @@ function display_user_input() {
 function validate_user_input() {
   var emotion = document.getElementById('emotion').value;
   var user_post = document.getElementById('user_post').value;
+  if (user_post.length > 60) {
+    alert("Max char limit exceeded for post");
+    return;
+  }
+  var emotions = ["happy", "sad","irriated", "calm","excited"]
+  if (!emotions.includes($("#emotion").val().toLowerCase())){
+    alert("Invalid emotion!");
+    return;
+  }
+//   $( "#post_form" ).validate({
+//   rules: {
+//     user_post: {
+//       required: true,
+//       max: 60
+//     },
+//     emotion: {
+//       required: function(element) {
+//         var emotions = ["happy", "sad","irriated", "calm","excited"]
+//         return emotions.includes($("#emotion").val().toLowerCase());
+//       }
+//     }
+//   }
+// });
   $('#user_fill').hide();
-  $('#posted_string').text("Today I'm feeling " + emotion + " because " + user_post);
+  $('#posted_string').text("Today I'm " + emotion + " because " + user_post);
   $('#posted_string_block').show();
   $('#post_on_wall').show();
 }
