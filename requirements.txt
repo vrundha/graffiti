@@ -1,0 +1,6 @@
+flask
+flask_restful
+psycopg2
+transformers
+sentence-transformers
+sklearn
