@@ -1,0 +1,34 @@
+Pitch:
+
+graffiti wall - you see tens of hundreds of things scribbled by random anonymous people .. and you feel connected .. to some of those scrawls ..
+and maybe you wish you could talk to that person?
+
+Technologies used :-  The project uses NLP, word cloud and cockroachdb.
+
+* It's primarily a social media for your CURRENT emotional needs.
+
+* Posts are short sentences comprised of a reason why a person feels a particular emotion at that instant.
+
+*Every post has a lifeline of 24 hours, in which random people can comment on
+random scrawls(anonymously). Eg: you had a really bad day because you lost a competition, you come to this wall, maybe someone else went through exactly the
+same thing? Right then, no one could understand your mood or state of mind better.
+
+*Completely anonymous platform - no question of gender, race, age, ethnicity, attractiveness quotient, etc. It's about pure feelings.
+
+*5 basic emotions - ________________, each emotion is color coded.
+Sentiment analysis based on relative appearance of scrawls. So the wall will appear as this jumble of colors. A glance will tell the general mood of "the world" at that instant.(if sufficiently random samples generated)
+Rosy overtones to the wall? - its a happy day for most,
+Green - most people are pissed off!
+
+* NLP used to club similar scrawls together. Eg: "I got divorced", "I got separated" etc.
+
+*The scrawls in the graffiti are attributed a portion of the wall based on their popularity. Not in terms of popularity of comments,
+but rather because of the fact that more number of people went through the same thing.
+Say a particular day oversaw LOTS of divorces, but not so many promotions.
+
+
+Scope of improvement:-
+* Graffiti fading off the wall over a period of 24 hours.
+* UI can be improved further.
+* Scalability - lazy loading of the graffiti, load handling, etc.
+* Storing user IPs in database - in case of harrasment issues, an IP can be blocked.

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Graffiti Wall</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/d3/6.5.0/d3.js" rel="stylesheet"> -->
+  <script src="assets/js/d3.layout.cloud.js"></script>
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+  <!-- ======= Hero Section ======= -->
+  <!-- <a href="#wall" id="wall_link" class="nav-link scrollto"> -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <h1>Graffiti Wall</h1>
+    <div class="hero-container" data-aos="fade-in" onclick="display_user_input()" id="auto_fill">
+      <p>Today I'm <span class="typed" data-typed-items="happy because I got promoted! , sad because I got divorced!, irritated because it's so humid, peaceful because the sky is beautiful"></span> </p>
+    </div>
+    <div class="hero-container" data-aos="fade-in" onclick="" id="user_fill" style="display:none">
+      <form class="form-inline" >
+        <label for="emotion">Today I'm feeling </label>
+          <input list="emotion" name="emotion" id="emotion"  style="width: 150px;" required>
+            <datalist id="emotions">
+              <option value="Happy">
+              <option value="Sad">
+              <option value="Irriated">
+              <option value="Calm">
+              <option value="Angry">
+            </datalist>
+          </input>
+        <label for="txt_string">Because</label>
+        <input type="text" id="user_post" placeholder="60 character limit" name="pswd" required>
+      </form>
+
+    </div>
+    <div class="hero-container" data-aos="fade-in" onclick=""  style="display:none" id="posted_string_block">
+      <p id="posted_string">Today I'm </p>
+    </div>
+    <button id="post_on_wall" class="btn btn-secondary btn-lg active"  style="display:none" onclick="myfunc()">Click to post on wall</button>
+  </section><!-- End Hero -->
+
+<!-- </a> -->
+
+  <main id="main">
+    <!-- ======= Resume Section ======= -->
+    <section id="wall" class="resume">
+      <div class="container">
+
+      </div>
+    </section><!-- End Resume Section -->
+
+  </main><!-- End #main -->
+
+  <div id="exampleModal"  class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+          <section class="comment-section">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-sm-5 col-md-6 col-12 pb-4">
+                          <h3 id="comment_heading">Comments</h3>
+                          <div class="comment mt-4 text-justify float-left"> <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40">
+                              <h4>Jhon Doe</h4><br>
+                              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                          </div>
+                          <div class="text-justify darker mt-4 float-right"> <img src="https://i.imgur.com/CFpa3nK.jpg" alt="" class="rounded-circle" width="40" height="40">
+                              <h4>Rob Simpson</h4><br>
+                              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                          </div>
+                          <div class="comment mt-4 text-justify"> <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40">
+                              <h4>Jhon Doe</h4><br>
+                              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                          </div>
+                          <div class="darker mt-4 text-justify"> <img src="https://i.imgur.com/CFpa3nK.jpg" alt="" class="rounded-circle" width="40" height="40">
+                              <h4>Rob Simpson</h4><br>
+                              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                          <form id="algin-form">
+                              <div class="form-group">
+                                  <h4>Leave a comment</h4> <label for="message">Message</label> <textarea name="msg" id="" msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                              </div>
+                              <div class="form-group"> <label for="name">Name</label> <input type="text" name="name" id="fullname" class="form-control"> </div>
+
+                              <div class="form-group"> <button type="button" id="post" class="btn">Post Comment</button> </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/gw.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
