@@ -69,3 +69,7 @@ It should return
 ps -e | grep cockroach
 lsof -i:5000
 ```
+# Demo
+```bash
+https://www.youtube.com/watch?v=JbKbpLlZE2M
+```
